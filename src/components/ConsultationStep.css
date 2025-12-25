@@ -1,0 +1,238 @@
+.step {
+  background: var(--color-white);
+}
+
+.step__heading {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+}
+
+.step__heading-icon {
+  display: none;
+}
+
+.step__timeline {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step__item {
+  margin-bottom: var(--spacing-sm);
+}
+
+.step__card {
+  background: var(--color-white);
+  padding: var(--spacing-lg);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-sm);
+}
+
+.step__card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.step__card-content {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.step__card-text {
+  flex: 1;
+}
+
+.step__card-description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-md);
+}
+
+.step__card-note {
+  display: inline;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+}
+
+.step__card-image {
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.step__card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.step__checkpoints {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+  background: var(--color-white);
+  border: 1px solid #e0e0e0;
+  padding: var(--spacing-sm);
+}
+
+.step__checkpoint {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.step__checkpoint:last-child {
+  border-bottom: none;
+}
+
+.step__checkpoint::before {
+  content: '☑';
+  flex-shrink: 0;
+  color: #4a90d9;
+}
+
+.step__checkbox {
+  display: none;
+}
+
+.step__phone-box {
+  background: var(--color-cream);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+.step__phone-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.step__phone-label {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  letter-spacing: 0.1em;
+}
+
+.step__phone-number {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+}
+
+.step__phone-hours {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.step__phone-icon {
+  display: none;
+}
+
+.step__arrow {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.step__arrow svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+}
+
+.step__cta {
+  margin-top: var(--spacing-2xl);
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--color-white);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-sm);
+}
+
+.step__cta-text {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.step__cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.step__cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all var(--transition-normal);
+}
+
+.step__cta-button--primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.step__cta-button--primary:hover {
+  opacity: 0.9;
+}
+
+.step__cta-button--secondary {
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  border: 1px solid #ddd;
+}
+
+.step__cta-button--secondary:hover {
+  background: var(--color-cream);
+}
+
+@media (max-width: 768px) {
+  .step__card-content {
+    flex-direction: column-reverse;
+  }
+
+  .step__card-image {
+    width: 100%;
+    max-width: 160px;
+    margin: 0 auto;
+  }
+
+  .step__phone-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .step__cta-buttons {
+    flex-direction: column;
+  }
+
+  .step__cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

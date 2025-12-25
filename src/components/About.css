@@ -1,0 +1,47 @@
+.about {
+  background: var(--color-white);
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+}
+
+.about__intro {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about__lead {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.8;
+}
+
+.about__description {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+  line-height: 2;
+}
+
+.about__signature {
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-xl);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .about__lead {
+    font-size: 1.15rem;
+  }
+
+  .about__br {
+    display: none;
+  }
+}
