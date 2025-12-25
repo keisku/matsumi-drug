@@ -19,7 +19,7 @@ export function Footer() {
         <div className="footer__content">
           <div className="footer__brand">
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="footer__logo">
-              <img src="/images/logo.png" alt="まつみ薬局" className="footer__logo-image" />
+              <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="まつみ薬局" className="footer__logo-image" />
             </button>
             <p className="footer__tagline">
               女性専門漢方相談、不妊の悩みなら、<br />

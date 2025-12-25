@@ -34,7 +34,7 @@ export function Header() {
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
       <div className="header__container container">
         <button onClick={scrollToTop} className="header__logo">
-          <img src="/images/logo.png" alt="まつみ薬局" className="header__logo-image" />
+          <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="まつみ薬局" className="header__logo-image" />
         </button>
 
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>

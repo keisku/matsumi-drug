@@ -8,7 +8,7 @@ export function ConsultationStep() {
       title: 'ご予約',
       description: 'まずはお気軽にお電話でご予約ください。特に初めてのお客様は、ゆっくりご相談のお時間をお取りさせていただきます。',
       note: '※ 初回のみ1時間ほどかかります',
-      image: '/images/consultation_step_1.jpg',
+      image: `${import.meta.env.BASE_URL}images/consultation_step_1.jpg`,
       showPhone: true,
       checkpoints: [
         '自分の悩みをどこで相談したら良いのかわからない。',
@@ -23,14 +23,14 @@ export function ConsultationStep() {
       number: 2,
       title: '丁寧なカウンセリング（問診）',
       description: 'お困りの症状（主訴）や普段の体調の状態のこと、また過去の病歴などもお伺いします。治療中の方はその治療内容や検査値、飲まれているお薬や健康食品などもお気軽にお話しください。',
-      image: '/images/consultation_step_2.png',
+      image: `${import.meta.env.BASE_URL}images/consultation_step_2.png`,
       checkpoints: []
     },
     {
       number: 3,
       title: '漢方薬や健康食品の提案（オーダーメイド漢方）',
       description: 'お一人お一人の体質やお悩みの症状、原因によって、必要な治療薬が違います。最も効果的な飲み方や飲まれる期間などもわかりやすくご説明させていただきます。また日頃の食生活や心の持ち方など、お役に立つアドバイスもさせていただきます。ご予算もお気軽にご相談ください。',
-      image: '/images/consultation_step_3.jpg',
+      image: `${import.meta.env.BASE_URL}images/consultation_step_3.jpg`,
       checkpoints: []
     },
     {
