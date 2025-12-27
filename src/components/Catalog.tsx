@@ -62,7 +62,7 @@ const catalogData: ProductCategory[] = [
   },
   {
     manufacturer: '大和生物研究所',
-    manufacturerUrl: 'https://www.yamato-bio.com/',
+    manufacturerUrl: 'https://daiwaseibutsu.co.jp/',
     products: [
       {
         name: 'クマザサ抽出液ササヘルス',
