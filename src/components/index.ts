@@ -5,3 +5,4 @@ export { Services } from './Services';
 export { ConsultationStep } from './ConsultationStep';
 export { Access } from './Access';
 export { Footer } from './Footer';
+export { Catalog } from './Catalog';

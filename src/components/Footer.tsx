@@ -1,15 +1,32 @@
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Footer.css';
 import { GOOGLE_FORM_URL, LINE_URL } from '../constants';
 
 export function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/' || location.pathname === '';
+
   const handleContactClick = () => {
     window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
   };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (isHomePage) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate('/', { state: { scrollTo: sectionId } });
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
     }
   };
 
@@ -18,7 +35,7 @@ export function Footer() {
       <div className="container">
         <div className="footer__content">
           <div className="footer__brand">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="footer__logo">
+            <button onClick={handleLogoClick} className="footer__logo">
               <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="まつみ薬局" className="footer__logo-image" />
             </button>
             <p className="footer__tagline">
@@ -31,6 +48,7 @@ export function Footer() {
             <ul className="footer__links-list">
               <li><button onClick={() => scrollToSection('about')}>まつみ薬局について</button></li>
               <li><button onClick={() => scrollToSection('step')}>ご相談の流れ</button></li>
+              <li><Link to="/catalog">取扱商品</Link></li>
               <li><button onClick={() => scrollToSection('access')}>アクセス</button></li>
             </ul>
           </div>
