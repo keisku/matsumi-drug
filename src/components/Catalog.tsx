@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Catalog.css';
 
 interface Product {
@@ -6,6 +7,7 @@ interface Product {
   description: string;
   detailUrl?: string;
   image?: string;
+  internalUrl?: string;
 }
 
 interface ProductCategory {
@@ -25,6 +27,7 @@ const catalogData: ProductCategory[] = [
         description: '麝香・牛黄配合。気つけ、息切れ、どうき、胃腸虚弱、消化不良、下痢に。',
         detailUrl: 'https://www.kyushin.co.jp/research/research03.html',
         image: 'https://www.kyushin.co.jp/research/img/kyushin_kannogan.png',
+        internalUrl: '/products/kyushin-kannouganki',
       },
       {
         name: '律鼓心',
@@ -194,6 +197,11 @@ export function Catalog() {
                         </div>
 
                         <p className="catalog__product-description">{product.description}</p>
+                        {product.internalUrl && (
+                          <Link to={product.internalUrl} className="catalog__product-internal-link">
+                            詳しく見る →
+                          </Link>
+                        )}
                       </div>
                     </article>
                   ))}

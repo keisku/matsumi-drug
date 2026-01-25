@@ -71,6 +71,11 @@ export function Header() {
               </Link>
             </li>
             <li>
+              <Link to="/blog" className="header__nav-link" onClick={() => setIsMenuOpen(false)}>
+                ブログ
+              </Link>
+            </li>
+            <li>
               <button onClick={() => scrollToSection('access')} className="header__nav-link">
                 アクセス
               </button>
