@@ -53,7 +53,8 @@
   gap: var(--spacing-sm);
 }
 
-.footer__links-list button {
+.footer__links-list button,
+.footer__links-list a {
   font-size: 0.9rem;
   color: var(--color-text-secondary);
   transition: color var(--transition-fast);
@@ -61,9 +62,12 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  text-decoration: none;
+  text-align: left;
 }
 
-.footer__links-list button:hover {
+.footer__links-list button:hover,
+.footer__links-list a:hover {
   color: var(--color-primary);
 }
 

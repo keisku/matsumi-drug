@@ -22,6 +22,14 @@ export function Header() {
     window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsMenuOpen(false);
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const scrollToSection = (sectionId: string) => {
     setIsMenuOpen(false);
     if (isHomePage) {
@@ -49,17 +57,12 @@ export function Header() {
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
       <div className="header__container container">
-        <Link to="/" className="header__logo">
+        <Link to="/" className="header__logo" onClick={handleLogoClick}>
           <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="まつみ薬局" className="header__logo-image" />
         </Link>
 
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
           <ul className="header__nav-list">
-            <li>
-              <button onClick={() => scrollToSection('about')} className="header__nav-link">
-                まつみ薬局について
-              </button>
-            </li>
             <li>
               <button onClick={() => scrollToSection('step')} className="header__nav-link">
                 ご相談の流れ
