@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Header, Footer, Hero, About, Services, ConsultationStep, Access, Catalog } from './components';
-import { KyushinKannouganki } from './components/products';
+import { KyushinKannouganki, YakukenBiorinck, YakukenBiorinckBCEx } from './components/products';
 import { BlogList, BlogArticle } from './components/blog';
 
 function HomePage() {
@@ -31,6 +31,22 @@ function KyushinKannoungankiPage() {
   );
 }
 
+function YakukenBiorinckPage() {
+  return (
+    <main>
+      <YakukenBiorinck />
+    </main>
+  );
+}
+
+function YakukenBiorinckBCExPage() {
+  return (
+    <main>
+      <YakukenBiorinckBCEx />
+    </main>
+  );
+}
+
 function BlogListPage() {
   return (
     <main>
@@ -55,6 +71,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/products/kyushin-kannouganki" element={<KyushinKannoungankiPage />} />
+        <Route path="/products/yakuken-biorinck" element={<YakukenBiorinckPage />} />
+        <Route path="/products/yakuken-biorinck-bcex" element={<YakukenBiorinckBCExPage />} />
         <Route path="/blog" element={<BlogListPage />} />
         <Route path="/blog/:slug" element={<BlogArticlePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
