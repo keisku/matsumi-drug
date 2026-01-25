@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './KyushinKannouganki.css';
+import '../blog/BlogArticle.css';
 
 const BASE_PATH = `${import.meta.env.BASE_URL}images/products/kyushinkannouganki/`;
 
@@ -174,98 +175,159 @@ export function KyushinKannouganki() {
 
           <section className="product-detail__section product-detail__report">
             <h2 className="product-detail__section-title">救心感應丸氣300粒レポート</h2>
-            <p className="product-detail__report-intro">
-              救心感應丸氣300粒の箱を開けるところからご紹介していきます。
-              実際に見て手に取って触っている感覚をイメージしてみてください。
-            </p>
+            <div className="blog-standard">
+              <p className="blog-standard__paragraph">
+                救心感應丸氣300粒の箱を開けるところからご紹介していきます。
+              </p>
+              <p className="blog-standard__paragraph">
+                まだ救心感應丸氣を実際に見られたり、現物を手に取られたことがない方にも、なるべく忠実にお伝えできればと思います。ぜひ本当に見て手に取って触っている感覚をイメージしてみてください。
+              </p>
 
-            <div className="product-detail__report-section">
-              <h3 className="product-detail__report-subtitle">パッケージ外観</h3>
-              <div className="product-detail__gallery">
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.front} alt="救心感應丸氣（正面）" loading="lazy" />
-                  <figcaption>正面</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.right} alt="救心感應丸氣（右側）" loading="lazy" />
-                  <figcaption>右側 - 使用期限、製造番号が記載</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.back} alt="救心感應丸氣（後側）" loading="lazy" />
-                  <figcaption>後側 - 成分、効能、用法・用量、注意事項が記載</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.left} alt="救心感應丸氣（左側）" loading="lazy" />
-                  <figcaption>左側 - 麝香、牛黄配合の表示</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.diagonalFront} alt="救心感應丸氣（斜め前）" loading="lazy" />
-                  <figcaption>斜め前 - 箱サイズ：タテ15.5cm、ヨコ17cm、高さ5.5cm</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.diagonalBack} alt="救心感應丸氣（斜め後ろ）" loading="lazy" />
-                  <figcaption>斜め後ろ</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.bottom} alt="救心感應丸氣（底面）" loading="lazy" />
-                  <figcaption>底面</figcaption>
-                </figure>
+              <h3 className="blog-standard__heading">救心感應丸氣の正面から見たところです。</h3>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.front} alt="救心感應丸氣（正面）" className="blog-standard__image" loading="lazy" />
               </div>
-            </div>
 
-            <div className="product-detail__report-section">
-              <h3 className="product-detail__report-subtitle">開封の様子</h3>
-              <div className="product-detail__gallery product-detail__gallery--vertical">
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.open1} alt="救心感應丸氣 開封1" loading="lazy" />
-                  <figcaption>箱を開けたところ。まだ中フタがあります。</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.open2} alt="救心感應丸氣 開封2" loading="lazy" />
-                  <figcaption>中フタを開けます。</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.open3} alt="救心感應丸氣 開封3" loading="lazy" />
-                  <figcaption>まだ全部見えません。</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.open4} alt="救心感應丸氣 開封4" loading="lazy" />
-                  <figcaption>全開。100包が整列されています。右上に添付文書があります。</figcaption>
-                </figure>
+              <h3 className="blog-standard__heading">救心感應丸氣を右側から見たところです。</h3>
+              <p className="blog-standard__paragraph">使用期限、製造番号が書いてあります。</p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.right} alt="救心感應丸氣（右側）" className="blog-standard__image" loading="lazy" />
               </div>
-            </div>
 
-            <div className="product-detail__report-section">
-              <h3 className="product-detail__report-subtitle">3粒（1包）の詳細</h3>
-              <div className="product-detail__gallery">
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.packets3} alt="救心感應丸氣 3粒×3袋" loading="lazy" />
-                  <figcaption>3粒×3袋を手のひらに</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.packet1} alt="救心感應丸氣 3粒×1袋" loading="lazy" />
-                  <figcaption>1包（3粒入り）</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.packetWithEyedrops} alt="救心感應丸氣 サイズ比較" loading="lazy" />
-                  <figcaption>目薬との大きさ比較</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.packetSize} alt="救心感應丸氣 1包サイズ" loading="lazy" />
-                  <figcaption>1包のサイズ：タテ7.5cm、ヨコ5cm</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.packetBack} alt="救心感應丸氣 1包裏面" loading="lazy" />
-                  <figcaption>1包の裏面 - 使用期限、製造番号が記載</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.pills} alt="救心感應丸氣 3粒" loading="lazy" />
-                  <figcaption>袋を開けた3粒（大人1回分）</figcaption>
-                </figure>
-                <figure className="product-detail__gallery-item">
-                  <img src={IMAGES.singlePill} alt="救心感應丸氣 1粒" loading="lazy" />
-                  <figcaption>直径約3mm、黒褐色の丸剤</figcaption>
-                </figure>
+              <h3 className="blog-standard__heading">救心感應丸氣を後ろ側から見たところです。</h3>
+              <p className="blog-standard__paragraph">
+                9粒中の成分、効能、用法・用量、注意、救心製薬株式会社の住所や製品についてのお問合せ先電話番号・受付時間、副作用被害者救済制度のお問合せ先電話番号が書いてあります。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.back} alt="救心感應丸氣（後側）" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣を左側から見たところです。</h3>
+              <p className="blog-standard__paragraph">
+                麝香、牛黄配合、救心感應丸氣、300粒（3粒×100）と書いてあります。右側からと同じことが書いてあります。
+              </p>
+              <p className="blog-standard__paragraph">
+                麝香、牛黄は、高貴薬と言われています。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.left} alt="救心感應丸氣（左側）" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣を斜め前、正面から見たところです。</h3>
+              <p className="blog-standard__paragraph">
+                箱サイズは、タテ15.5cm、ヨコ17cm、高さ5.5cmです。重さは軽いです。あとで正確な重さをご紹介します。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.diagonalFront} alt="救心感應丸氣（斜め前）" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣を斜め後ろから見たところです。</h3>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.diagonalBack} alt="救心感應丸氣（斜め後ろ）" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣の底面を見たところです。</h3>
+              <p className="blog-standard__paragraph">
+                紙箱、中仕切りと書いてあります。下にバーコード（498706148829）表示があります。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.bottom} alt="救心感應丸氣（底面）" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣の箱を開けてみます。</h3>
+              <p className="blog-standard__paragraph">
+                開けましたが、まだ中フタがあるので中身がまだ見えません。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.open1} alt="救心感應丸氣 開封1" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣の中フタを開けてみます。</h3>
+              <p className="blog-standard__paragraph">
+                キレイに中フタを破らずに開けるのが少し難しいです。「ここを切り取って開けてください」と矢印↓もありますが、切り取り線はあるもののゆっくり開けてもビリッとどこかが破れてしまいます。
+              </p>
+              <p className="blog-standard__paragraph">
+                ちなみに包装紙などを破らず綺麗に開けられる人でしたら、開け甲斐があると言ってもいいかもしれません。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.open2} alt="救心感應丸氣 開封2" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <p className="blog-standard__paragraph">
+                「わぁ〜」と言いたいところですが、実はまだ全部見えません。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.open3} alt="救心感應丸氣 開封3" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣の中箱のさらに半フタを開けます。</h3>
+              <p className="blog-standard__paragraph">
+                やっと全開できました。綺麗に100包が整列されています。全て3粒ずつの個包装です。
+              </p>
+              <p className="blog-standard__paragraph">
+                右上にある白い折りたたまれた用紙は「添付文書」です。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.open4} alt="救心感應丸氣 開封4" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <p className="blog-standard__paragraph">
+                この添付文書には、商品を購入された方だけが見られる外箱には表示できない詳しい商品説明がたくさん記載されています。残念ながらこの場でも添付文書の内容公開は出来かねます。本当は、ぜひご紹介したいのですが、申し訳ございません。
+              </p>
+              <p className="blog-standard__paragraph">
+                「添付文書は、救心感應丸氣を購入された方だけが見れる特典」とご理解いただければと思います。
+              </p>
+
+              <h2 className="blog-standard__heading" style={{ fontSize: '1.5rem', marginTop: '2rem' }}>救心感應丸氣3粒（1包）レポート</h2>
+              <p className="blog-standard__paragraph">
+                それでは、早速ですが実際に3粒の個包装を手に取ってみたいと思います。
+              </p>
+              <p className="blog-standard__paragraph">
+                画像だけでは実際の大きさが伝わりにくいので、ここからのレポートもできるだけ忠実に伝わるようご紹介していきます。
+              </p>
+
+              <h3 className="blog-standard__heading">救心感應丸氣の3粒×3包です。</h3>
+              <p className="blog-standard__paragraph">
+                3粒×3袋を少し重ねてのせてみました。女性の手のひらの上に乗せています。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.packets3} alt="救心感應丸氣 3粒×3袋" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣の3粒×1包です。</h3>
+              <p className="blog-standard__paragraph">手のひらの上です。</p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.packet1} alt="救心感應丸氣 3粒×1袋" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <p className="blog-standard__paragraph">
+                目薬を横に置いてみました。大きさの参考にしてください。
+              </p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.packetWithEyedrops} alt="救心感應丸氣 サイズ比較" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣3粒×1包装のサイズ。</h3>
+              <p className="blog-standard__paragraph">タテ7.5cm、ヨコ5cmです。</p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.packetSize} alt="救心感應丸氣 1包サイズ" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣3粒×1包の裏側です。</h3>
+              <p className="blog-standard__paragraph">使用期限、製造番号が書いてあります。</p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.packetBack} alt="救心感應丸氣 1包裏面" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <h3 className="blog-standard__heading">救心感應丸氣の袋を破ります。</h3>
+              <p className="blog-standard__paragraph">大人（15才以上）1回分は、3粒です。</p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.pills} alt="救心感應丸氣 3粒" className="blog-standard__image" loading="lazy" />
+              </div>
+
+              <p className="blog-standard__paragraph">直径約3mm、黒褐色の丸剤です。</p>
+              <div className="blog-standard__image-wrapper">
+                <img src={IMAGES.singlePill} alt="救心感應丸氣 1粒" className="blog-standard__image" loading="lazy" />
               </div>
             </div>
           </section>
