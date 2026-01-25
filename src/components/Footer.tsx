@@ -46,6 +46,7 @@ export function Footer() {
 
           <div className="footer__links">
             <ul className="footer__links-list">
+              <li><Link to="/about">まつみ薬局について</Link></li>
               <li><button onClick={() => scrollToSection('step')}>ご相談の流れ</button></li>
               <li><Link to="/catalog">取扱商品</Link></li>
               <li><Link to="/blog">ブログ</Link></li>

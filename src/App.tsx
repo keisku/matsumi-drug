@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Header, Footer, Hero, About, Services, ConsultationStep, Access, Catalog } from './components';
+import { Header, Footer, Hero, About, Services, ConsultationStep, Access, Catalog, AboutPage } from './components';
 import { KyushinKannouganki, YakukenBiorinck, YakukenBiorinckBCEx } from './components/products';
 import { BlogList, BlogArticle } from './components/blog';
 
@@ -63,12 +63,21 @@ function BlogArticlePage() {
   );
 }
 
+function AboutPageWrapper() {
+  return (
+    <main>
+      <AboutPage />
+    </main>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPageWrapper />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/products/kyushin-kannouganki" element={<KyushinKannoungankiPage />} />
         <Route path="/products/yakuken-biorinck" element={<YakukenBiorinckPage />} />

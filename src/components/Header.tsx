@@ -64,6 +64,11 @@ export function Header() {
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
           <ul className="header__nav-list">
             <li>
+              <Link to="/about" className="header__nav-link" onClick={() => setIsMenuOpen(false)}>
+                まつみ薬局について
+              </Link>
+            </li>
+            <li>
               <button onClick={() => scrollToSection('step')} className="header__nav-link">
                 ご相談の流れ
               </button>
