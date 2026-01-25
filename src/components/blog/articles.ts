@@ -1,11 +1,15 @@
 const BASE_PATH = `${import.meta.env.BASE_URL}images/blog/traditional-medicine/`;
+const MASK_ARTICLE_PATH = `${import.meta.env.BASE_URL}images/blog/mask-article/`;
+
+export type BlogArticleType = 'traditional-medicine' | 'standard';
 
 export interface BlogArticle {
   slug: string;
   title: string;
   description: string;
   thumbnail?: string;
-  content: BlogSection[];
+  type: BlogArticleType;
+  content: BlogSection[] | StandardBlogSection[];
 }
 
 export interface BlogSection {
@@ -37,9 +41,20 @@ export interface BlogSection {
   };
 }
 
+export interface StandardBlogSection {
+  type: 'paragraph' | 'heading' | 'image' | 'list' | 'quote';
+  content?: string;
+  level?: number;
+  image?: string;
+  alt?: string;
+  items?: string[];
+  title?: string;
+}
+
 export const blogArticles: BlogArticle[] = [
   {
     slug: 'traditional-medicine',
+    type: 'traditional-medicine',
     title: "現代（いま）に活かす『伝統生薬』",
     description: '季節ごとの体の不調と、それに対応する生薬・食材・ツボをご紹介します。',
     thumbnail: `${BASE_PATH}takenoko-210x300.jpg`,
@@ -247,6 +262,148 @@ export const blogArticles: BlogArticle[] = [
           description: '気血の「気」を元気にするツボです。場所柄、さりげなく押すことができます。「どうしよう」や漠然とした不安に襲われた時には、ツボに指を添えて深呼吸です。気持ちも気血も、新鮮な「空気」を待っています。疲れで身体が動かない時にお使います。',
           location: '小指と薬指の間で、手を握った時に出る関節の下にできるくぼみ',
         },
+      },
+    ],
+  },
+  {
+    slug: 'mask-asahi-news',
+    type: 'standard',
+    title: '新型コロナ【簡易マスク】朝日新聞に掲載されました！',
+    description: '朝日新聞から取材を受け、簡易マスクの作り方を紹介した記事が掲載されました。',
+    thumbnail: `${MASK_ARTICLE_PATH}asahi21.jpg`,
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        content: '【簡易マスク】朝日新聞に掲載されました！',
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}asahi21.jpg`,
+        alt: '朝日新聞取材,簡易マスク,手作りマスク,キッチンペーパーで作る',
+      },
+      {
+        type: 'paragraph',
+        content: 'きっかけは、まつみ薬局のあるブログを見つけていただいたことからです。ある日、突然「朝日新聞社です」とお電話をいただきました。',
+      },
+      {
+        type: 'paragraph',
+        content: 'この時の様子は、別のブログで紹介しています。良かったらみてくださいね 😀',
+      },
+      {
+        type: 'heading',
+        level: 4,
+        content: '新型コロナ【朝日新聞社から取材を受けました】超簡単！手作りマスク（2020年3月9日ブログ記事）',
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}mask00-2.jpg`,
+        alt: '新型コロナウイルス,手作りマスク,朝日新聞社取材',
+      },
+      {
+        type: 'heading',
+        level: 3,
+        content: '朝日新聞朝刊【京都版】に',
+      },
+      {
+        type: 'heading',
+        level: 4,
+        content: '簡易マスク 南丹の薬局、ブログで紹介【2020年3月12日(木)朝刊】',
+      },
+      {
+        type: 'paragraph',
+        content: '（朝日新聞記事をそのまま紹介。文章は、記者の白見はる菜さん）',
+      },
+      {
+        type: 'paragraph',
+        content: '新型コロナウイルスの感染拡大でマスクが品薄になる中、南丹市園部町のまつみ薬局は、ホチキスを使った簡易的なマスクを紹介している、咳エチケットの一助になりそうだ。',
+      },
+      {
+        type: 'paragraph',
+        content: 'まつみ薬局では、2月6日を最後に、マスクの入荷が止まっている。週２回の入荷日に合わせて発注を繰り返しているが、品切れが続く。そんな中、管理薬剤師の梅垣眞由美さんが簡易マスクを手作りしている動画をインターネットで発見。施策を重ね、輪ゴムを留める数などを改善し、同月17日に「超簡単手作りマスク」と題して薬局のブログで紹介した。',
+      },
+      {
+        type: 'paragraph',
+        content: '薬局には今も、「マスクはありますか」という問い合わせが1日に50件ほどあるという。梅垣さんは「最初は『在庫がなくてすみません』と謝っていたけど、今は『もう作っちゃいましょう』と言っています。子どもでも作れるくらい簡単です」と話す。',
+      },
+      {
+        type: 'paragraph',
+        content: '同じようにキッチンペーパーで簡易マスクを作る方法は、警視庁災害対策課もホームページで留める位置を変えれば、マスクの大きさを調整できるとし「密閉性には少し欠けますが、砂ぼこり等には十分に防げます」と案内している。',
+      },
+      {
+        type: 'paragraph',
+        content: '厚生労働省は「正しい咳エチケット」として、マスク着用のほか、ティッシュ・ハンカチなどで口や鼻を覆う▽上着の内側や袖で覆う―ことも勧めている。特に電車や職場、学校など人が集まる場所で実践することが重要だとしている。',
+      },
+      {
+        type: 'heading',
+        level: 4,
+        content: '◆梅垣さんお勧めの簡易マスクの作り方',
+      },
+      {
+        type: 'list',
+        title: '①キッチンペーパー２カット分と輪ゴム２つ、ホチキスを用意する。',
+        items: [],
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}mask1.jpg`,
+        alt: '手作りマスク',
+      },
+      {
+        type: 'list',
+        title: '②キッチンペーパーを約３㎝幅で山折り、谷折りする。',
+        items: [],
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}mask2.jpg`,
+        alt: '手作りマスク',
+      },
+      {
+        type: 'list',
+        title: '➂蛇腹の帯状にしたキッチンペーパーの両端に、ホチキスで2ヶ所ずつ輪ゴムを留める。',
+        items: [],
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}mask3.jpg`,
+        alt: '手作りマスク',
+      },
+      {
+        type: 'list',
+        title: '➃ジャバラを広げたら完成。',
+        items: [],
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}mask4.jpg`,
+        alt: '手作りマスク',
+      },
+      {
+        type: 'paragraph',
+        content: '---',
+      },
+      {
+        type: 'paragraph',
+        content: '白見はる菜さん、とてもわかりやすく、素敵な文章を書いていただいてありがとうございました。',
+      },
+      {
+        type: 'paragraph',
+        content: '今日も、「マスクありますか？」と聞かれましたので、この新聞記事をコピーしてお渡ししたらとても喜ばれました 😳',
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}mask01.jpg`,
+        alt: '新型コロナウイルス,手作りマスク,朝日新聞社取材',
+      },
+      {
+        type: 'image',
+        image: `${MASK_ARTICLE_PATH}mask6.jpg`,
+        alt: 'まつみ薬局,漢方相談,処方箋調剤,まゆみ',
+      },
+      {
+        type: 'paragraph',
+        content: 'まつみ薬局ではお客様の信頼関係で成り立っています。あなた様の周りにもお困りのご家族・お知り合いがいらっしゃいましたら、是非ご紹介ください。',
       },
     ],
   },

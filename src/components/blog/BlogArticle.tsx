@@ -1,7 +1,48 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { createElement } from 'react';
 import { getArticleBySlug } from './articles';
-import type { BlogSection } from './articles';
+import type { BlogSection, StandardBlogSection } from './articles';
 import './BlogArticle.css';
+
+function StandardSectionContent({ section }: { section: StandardBlogSection }) {
+  switch (section.type) {
+    case 'heading': {
+      const level = section.level || 2;
+      const tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+      return createElement(tag, { className: 'blog-standard__heading' }, section.content);
+    }
+    case 'paragraph':
+      return <p className="blog-standard__paragraph">{section.content}</p>;
+    case 'image':
+      return (
+        <div className="blog-standard__image-wrapper">
+          <img
+            src={section.image}
+            alt={section.alt || ''}
+            className="blog-standard__image"
+            loading="lazy"
+          />
+        </div>
+      );
+    case 'list':
+      return (
+        <div className="blog-standard__list">
+          {section.title && <p className="blog-standard__list-title">{section.title}</p>}
+          {section.items && section.items.length > 0 && (
+            <ul className="blog-standard__list-items">
+              {section.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      );
+    case 'quote':
+      return <blockquote className="blog-standard__quote">{section.content}</blockquote>;
+    default:
+      return null;
+  }
+}
 
 function SectionContent({ section }: { section: BlogSection }) {
   return (
@@ -120,9 +161,17 @@ export function BlogArticle() {
           </header>
 
           <div className="blog-article__content">
-            {article.content.map((section, index) => (
-              <SectionContent key={index} section={section} />
-            ))}
+            {article.type === 'traditional-medicine' ? (
+              (article.content as BlogSection[]).map((section, index) => (
+                <SectionContent key={index} section={section} />
+              ))
+            ) : (
+              <div className="blog-standard">
+                {(article.content as StandardBlogSection[]).map((section, index) => (
+                  <StandardSectionContent key={index} section={section} />
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="blog-article__back">
