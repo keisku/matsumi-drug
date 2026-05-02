@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Catalog.css';
 import { GOOGLE_FORM_URL } from '../constants';
 
@@ -228,6 +228,15 @@ export function Catalog() {
   useEffect(() => {
     setActiveIndex(0);
   }, [query]);
+
+  const location = useLocation();
+  useEffect(() => {
+    const state = location.state as { focusSearch?: boolean } | null;
+    if (state?.focusSearch && inputRef.current) {
+      inputRef.current.focus();
+      setIsFocused(true);
+    }
+  }, [location]);
 
   const handleSelect = (id: string) => {
     setQuery('');
