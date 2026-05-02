@@ -23,6 +23,8 @@ export function Access() {
     { day: '定休日', time: '木曜日・日曜日・祝日（不定休）' }
   ];
 
+  const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=京都府南丹市園部町本町120番地+まつみ薬局';
+
   return (
     <section className="access section" id="access">
       <div className="container">
@@ -73,6 +75,13 @@ export function Access() {
                   </div>
                 ))}
               </div>
+              <p className="access__hours-note">
+                最新の営業時間は
+                <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="access__link">
+                  Google マップ
+                </a>
+                でご確認ください。
+              </p>
             </div>
 
             <div className="access__card">

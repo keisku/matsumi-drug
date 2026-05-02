@@ -92,6 +92,13 @@
   border-bottom: none;
 }
 
+.access__hours-note {
+  margin-top: var(--spacing-md);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
 .access__hours-day {
   font-weight: 500;
   color: var(--color-text-primary);
