@@ -5,10 +5,10 @@ import { KyushinKannouganki, YakukenBiorinck, YakukenBiorinckBCEx } from './comp
 import { BlogList, BlogArticle } from './components/blog';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const location = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [pathname]);
+  }, [location.key]);
   return null;
 }
 
