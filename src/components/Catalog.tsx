@@ -122,8 +122,8 @@ const catalogData: ProductCategory[] = [
   },
   {
     id: 'kracie',
-    manufacturer: 'クラシエ株式会社',
-    manufacturerReading: 'くらしえ',
+    manufacturer: 'クラシエ薬品株式会社（漢方療法推進会）',
+    manufacturerReading: 'くらしえやくひん',
     manufacturerUrl: 'https://www.kracie.co.jp/company/',
     products: [
       {
@@ -131,7 +131,7 @@ const catalogData: ProductCategory[] = [
         reading: 'かっこんとう',
         description: 'かぜや肩こりなどに効果があります。',
         detailUrl: 'https://www.kracie.co.jp/products/ph/1201494_2220.html',
-				image: 'https://www.kracie.co.jp/products/image/item/ph_4987045068423_200.jpg',
+				image: 'https://www.kracie.co.jp/ph/k-suisinkai/product/packages/4987045070563/img/product-img.webp',
       },
       {
         name: '漢方苓桂朮甘湯エキス顆粒S',
