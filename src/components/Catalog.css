@@ -120,7 +120,7 @@
 }
 
 .catalog__product-name {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   font-weight: 500;
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-xs);
