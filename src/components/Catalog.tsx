@@ -137,7 +137,7 @@ const catalogData: ProductCategory[] = [
         id: 'kakkonto',
         name: '葛根湯エキス顆粒Aクラシエ',
         reading: 'かっこんとう',
-        detailUrl: 'https://www.kracie.co.jp/products/ph/1201494_2220.html',
+        detailUrl: 'https://www.kracie.co.jp/ph/k-suisinkai/product/packages/4987045070563/',
 				image: 'https://www.kracie.co.jp/ph/k-suisinkai/product/packages/4987045070563/img/product-img.webp',
       },
       {
