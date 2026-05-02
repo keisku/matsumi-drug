@@ -1,7 +1,16 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header, Footer, Hero, About, Services, ConsultationStep, Access, Catalog, AboutPage } from './components';
 import { KyushinKannouganki, YakukenBiorinck, YakukenBiorinckBCEx } from './components/products';
 import { BlogList, BlogArticle } from './components/blog';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function HomePage() {
   return (
@@ -74,6 +83,7 @@ function AboutPageWrapper() {
 function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
