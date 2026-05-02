@@ -210,7 +210,10 @@ export function Catalog() {
   };
 
   const syncQueryFromInput = () => {
-    if (inputRef.current) setQuery(inputRef.current.value);
+    if (inputRef.current) {
+      setQuery(inputRef.current.value);
+      setActiveIndex(0);
+    }
   };
 
   const matches = useMemo(() => {
@@ -225,16 +228,11 @@ export function Catalog() {
       .slice(0, 8);
   }, [query]);
 
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [query]);
-
   const location = useLocation();
   useEffect(() => {
     const state = location.state as { focusSearch?: boolean } | null;
     if (state?.focusSearch && inputRef.current) {
       inputRef.current.focus();
-      setIsFocused(true);
     }
   }, [location]);
 
