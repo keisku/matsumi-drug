@@ -109,7 +109,7 @@
 
 .catalog__product-image-wrapper {
   flex-shrink: 0;
-  width: 120px;
+  width: 168px;
 }
 
 .catalog__product-image-wrapper a {
@@ -248,7 +248,7 @@
   }
 
   .catalog__product-image-wrapper {
-    width: 100px;
+    width: 200px;
     margin-bottom: var(--spacing-sm);
   }
 
