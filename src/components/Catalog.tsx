@@ -1,5 +1,7 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import './Catalog.css';
+import { GOOGLE_FORM_URL } from '../constants';
 
 interface Product {
   name: string;
@@ -152,12 +154,20 @@ const catalogData: ProductCategory[] = [
 ];
 
 export function Catalog() {
+  const handleContactClick = () => {
+    window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="catalog-page">
       <section className="catalog section">
         <div className="container">
           <h1 className="catalog__title">取扱商品リスト</h1>
           <p className="catalog__subtitle">漢方薬・健康食品・化粧品など</p>
+
+          <button onClick={handleContactClick} className="catalog__contact-mobile">
+            お問い合わせ
+          </button>
 
           <nav className="catalog__intro" aria-label="メーカー目次">
             <ul className="catalog__toc">
@@ -173,7 +183,8 @@ export function Catalog() {
 
           <div className="catalog__categories">
             {catalogData.map((category, catIndex) => (
-              <div key={catIndex} id={category.id} className="catalog__category">
+              <Fragment key={catIndex}>
+              <div id={category.id} className="catalog__category">
                 <h2 className="catalog__manufacturer">
                   {category.manufacturerUrl ? (
                     <a href={category.manufacturerUrl} target="_blank" rel="noopener noreferrer">
@@ -225,6 +236,12 @@ export function Catalog() {
                   ))}
                 </div>
               </div>
+              {category.id === 'chlorella' && (
+                <button onClick={handleContactClick} className="catalog__contact-mobile catalog__contact-mobile--inline">
+                  お問い合わせ
+                </button>
+              )}
+              </Fragment>
             ))}
           </div>
         </div>
