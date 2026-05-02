@@ -107,12 +107,12 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  height: 32px;
-  padding: 0 var(--spacing-md);
+  height: 42px;
+  padding: 0 var(--spacing-lg);
   background: var(--color-primary);
   color: var(--color-white);
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   font-weight: 500;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -127,7 +127,7 @@
 }
 
 .footer__line img {
-  height: 32px;
+  height: 42px;
   width: auto;
 }
 
