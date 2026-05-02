@@ -11,14 +11,18 @@ interface Product {
 }
 
 interface ProductCategory {
+  id: string;
   manufacturer: string;
+  manufacturerReading: string;
   manufacturerUrl?: string;
   products: Product[];
 }
 
 const catalogData: ProductCategory[] = [
   {
+    id: 'kyushin',
     manufacturer: '救心製薬株式会社',
+    manufacturerReading: 'きゅうしんせいやく',
     manufacturerUrl: 'https://www.kyushin.co.jp/research/',
     products: [
       {
@@ -46,7 +50,9 @@ const catalogData: ProductCategory[] = [
     ],
   },
   {
+    id: 'chlorella',
     manufacturer: 'クロレラ工業株式会社',
+    manufacturerReading: 'くろれらこうぎょう',
     manufacturerUrl: 'https://www.chlorella.co.jp/',
     products: [
       {
@@ -66,7 +72,9 @@ const catalogData: ProductCategory[] = [
     ],
   },
   {
+    id: 'daiwa',
     manufacturer: '大和生物研究所',
+    manufacturerReading: 'だいわせいぶつけんきゅうじょ',
     manufacturerUrl: 'https://daiwaseibutsu.co.jp/',
     products: [
       {
@@ -78,7 +86,9 @@ const catalogData: ProductCategory[] = [
     ],
   },
   {
+    id: 'nissei-marine',
     manufacturer: '日誠マリン工業株式会社',
+    manufacturerReading: 'にっせいまりんこうぎょう',
     manufacturerUrl: 'https://nissei-marine.co.jp/',
     products: [
       {
@@ -96,7 +106,9 @@ const catalogData: ProductCategory[] = [
     ],
   },
   {
+    id: 'honomi',
     manufacturer: 'ホノミ漢方 剤盛堂薬品株式会社',
+    manufacturerReading: 'ほのみかんぽう',
     manufacturerUrl: 'https://www.zaiseido.co.jp/',
     products: [
       {
@@ -109,7 +121,9 @@ const catalogData: ProductCategory[] = [
     ],
   },
   {
+    id: 'kracie',
     manufacturer: 'クラシエ株式会社',
+    manufacturerReading: 'くらしえ',
     manufacturerUrl: 'https://www.kracie.co.jp/company/',
     products: [
       {
@@ -145,19 +159,21 @@ export function Catalog() {
           <h1 className="catalog__title">取扱商品リスト</h1>
           <p className="catalog__subtitle">漢方薬・健康食品・化粧品など</p>
 
-          <div className="catalog__intro">
-            <p>
-              まつみ薬局では、多くの漢方薬、健康食品、化粧品などを取り扱っております。
-              <br />
-              価格・在庫については、お気軽にお問合せください。
-              <br />
-              ここに掲載されていない商品でお取り寄せできるものもあります。
-            </p>
-          </div>
+          <nav className="catalog__intro" aria-label="メーカー目次">
+            <ul className="catalog__toc">
+              {[...catalogData]
+                .sort((a, b) => a.manufacturerReading.localeCompare(b.manufacturerReading, 'ja'))
+                .map((category) => (
+                  <li key={category.id}>
+                    <a href={`#${category.id}`}>{category.manufacturer}</a>
+                  </li>
+                ))}
+            </ul>
+          </nav>
 
           <div className="catalog__categories">
             {catalogData.map((category, catIndex) => (
-              <div key={catIndex} className="catalog__category">
+              <div key={catIndex} id={category.id} className="catalog__category">
                 <h2 className="catalog__manufacturer">
                   {category.manufacturerUrl ? (
                     <a href={category.manufacturerUrl} target="_blank" rel="noopener noreferrer">

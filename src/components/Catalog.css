@@ -22,17 +22,32 @@
 }
 
 .catalog__intro {
-  text-align: center;
   margin-bottom: var(--spacing-3xl);
   padding: var(--spacing-lg);
   background: var(--color-cream);
   border-radius: var(--radius-md);
 }
 
-.catalog__intro p {
+.catalog__toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm) var(--spacing-lg);
+}
+
+.catalog__toc a {
+  color: var(--color-primary);
+  text-decoration: none;
   font-size: 0.95rem;
-  color: var(--color-text-secondary);
-  line-height: 1.8;
+  transition: opacity var(--transition-fast);
+}
+
+.catalog__toc a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .catalog__categories {
@@ -44,6 +59,7 @@
 .catalog__category {
   border-top: 1px solid #e0e0e0;
   padding-top: var(--spacing-xl);
+  scroll-margin-top: calc(var(--header-height) + var(--spacing-md));
 }
 
 .catalog__manufacturer {
