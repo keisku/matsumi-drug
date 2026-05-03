@@ -1,26 +1,11 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Footer.css';
-import { GOOGLE_FORM_URL, LINE_URL } from '../constants';
+import { LINE_URL, PHONE_NUMBER } from '../constants';
+import { useNavScroll } from '../hooks/useNavScroll';
 
 export function Footer() {
-  const location = useLocation();
   const navigate = useNavigate();
-  const isHomePage = location.pathname === '/' || location.pathname === '';
-
-  const handleContactClick = () => {
-    window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    if (isHomePage) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate('/', { state: { scrollTo: sectionId } });
-    }
-  };
+  const { isHomePage, scrollToSection, openContactForm } = useNavScroll();
 
   const handleLogoClick = () => {
     if (isHomePage) {
@@ -56,14 +41,14 @@ export function Footer() {
 
           <div className="footer__contact">
             <div className="footer__contact-info">
-              <a href="tel:0771-63-1233" className="footer__phone">
-                TEL 0771-63-1233
+              <a href={`tel:${PHONE_NUMBER}`} className="footer__phone">
+                TEL {PHONE_NUMBER}
               </a>
               <p className="footer__address">
                 〒622-0013<br />
                 京都府南丹市園部町本町120番地
               </p>
-              <button onClick={handleContactClick} className="footer__cta">
+              <button onClick={openContactForm} className="footer__cta">
                 お問い合わせ
               </button>
               <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="footer__line">

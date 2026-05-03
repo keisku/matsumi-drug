@@ -14,14 +14,6 @@
   text-align: center;
 }
 
-.about__lead {
-  font-family: var(--font-sans);
-  font-size: 1.35rem;
-  color: var(--color-text-primary);
-  margin-bottom: var(--spacing-xl);
-  line-height: 1.8;
-}
-
 .about__description {
   font-size: 1rem;
   color: var(--color-text-secondary);
@@ -34,14 +26,4 @@
   color: var(--color-text-primary);
   margin-top: var(--spacing-xl);
   text-align: right;
-}
-
-@media (max-width: 600px) {
-  .about__lead {
-    font-size: 1.15rem;
-  }
-
-  .about__br {
-    display: none;
-  }
 }

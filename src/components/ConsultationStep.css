@@ -10,10 +10,6 @@
   text-align: center;
 }
 
-.step__heading-icon {
-  display: none;
-}
-
 .step__timeline {
   max-width: 800px;
   margin: 0 auto;
@@ -103,10 +99,6 @@
   color: #4a90d9;
 }
 
-.step__checkbox {
-  display: none;
-}
-
 .step__phone-box {
   background: var(--color-cream);
   border: 1px solid var(--color-primary);
@@ -140,10 +132,6 @@
 .step__phone-hours {
   font-size: 0.8rem;
   color: var(--color-text-secondary);
-}
-
-.step__phone-icon {
-  display: none;
 }
 
 .step__arrow {

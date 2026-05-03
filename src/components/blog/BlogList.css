@@ -13,13 +13,6 @@
   margin-bottom: var(--spacing-sm);
 }
 
-.blog-list__subtitle {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
-  text-align: center;
-  margin-bottom: var(--spacing-3xl);
-}
-
 .blog-list__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -64,13 +57,6 @@
 
 .blog-card__content {
   padding: var(--spacing-lg);
-}
-
-.blog-card__date {
-  font-size: 0.8rem;
-  color: var(--color-text-light);
-  display: block;
-  margin-bottom: var(--spacing-xs);
 }
 
 .blog-card__title {

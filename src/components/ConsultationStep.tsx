@@ -1,5 +1,5 @@
 import './ConsultationStep.css';
-import { GOOGLE_FORM_URL } from '../constants';
+import { GOOGLE_FORM_URL, PHONE_NUMBER } from '../constants';
 
 export function ConsultationStep() {
   const steps = [
@@ -48,12 +48,7 @@ export function ConsultationStep() {
   return (
     <section className="step section" id="step">
       <div className="container">
-        <h2 className="step__heading">
-          <svg className="step__heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" />
-          </svg>
-          ご相談の流れ
-        </h2>
+        <h2 className="step__heading">ご相談の流れ</h2>
         
         <div className="step__timeline">
           {steps.map((step, index) => (
@@ -73,19 +68,16 @@ export function ConsultationStep() {
                     {step.checkpoints.length > 0 && (
                       <ul className="step__checkpoints">
                         {step.checkpoints.map((point, idx) => (
-                          <li key={idx} className="step__checkpoint">
-                            <span className="step__checkbox"></span>
-                            {point}
-                          </li>
+                          <li key={idx} className="step__checkpoint">{point}</li>
                         ))}
                       </ul>
                     )}
 
                     {step.showPhone && (
                       <div className="step__phone-box">
-                        <a href="tel:0771-63-1233" className="step__phone-link">
+                        <a href={`tel:${PHONE_NUMBER}`} className="step__phone-link">
                           <span className="step__phone-label">TEL</span>
-                          <span className="step__phone-number">0771-63-1233</span>
+                          <span className="step__phone-number">{PHONE_NUMBER}</span>
                         </a>
                         <p className="step__phone-hours">
                           平日:午前10時〜午後6時（土のみ〜午後1時）定休日:木日、祝:不定休
@@ -119,8 +111,8 @@ export function ConsultationStep() {
             <button onClick={handleContactClick} className="step__cta-button step__cta-button--primary">
               お問い合わせ
             </button>
-            <a href="tel:0771-63-1233" className="step__cta-button step__cta-button--secondary">
-              TEL: 0771-63-1233
+            <a href={`tel:${PHONE_NUMBER}`} className="step__cta-button step__cta-button--secondary">
+              TEL: {PHONE_NUMBER}
             </a>
           </div>
         </div>

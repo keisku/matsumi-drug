@@ -1,10 +1,11 @@
 import './Access.css';
+import { PHONE_NUMBER } from '../constants';
 
 export function Access() {
   const info = [
     { label: '店舗名', value: 'まつみ薬局' },
     { label: '住所', value: '〒622-0013 京都府南丹市園部町本町120番地' },
-    { label: '電話番号', value: '0771-63-1233', isPhone: true },
+    { label: '電話番号', value: PHONE_NUMBER, isPhone: true },
     { label: 'FAX', value: '0771-63-6001' },
     { label: 'E-mail', value: 'info@matsumi-drug.com', isEmail: true },
     { label: '駐車場', value: 'あり（3台）' }

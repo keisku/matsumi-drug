@@ -3,6 +3,7 @@ import { createElement } from 'react';
 import { getArticleBySlug } from './articles';
 import type { BlogSection, StandardBlogSection } from './articles';
 import './BlogArticle.css';
+import './BlogStandard.css';
 
 function StandardSectionContent({ section }: { section: StandardBlogSection }) {
   switch (section.type) {

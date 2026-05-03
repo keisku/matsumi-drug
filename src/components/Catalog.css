@@ -271,18 +271,6 @@
   color: var(--color-text-light);
 }
 
-.catalog__product-link {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: opacity var(--transition-fast);
-}
-
-.catalog__product-link:hover {
-  opacity: 0.7;
-}
-
 .catalog__product-internal-link {
   display: inline-block;
   align-self: center;
@@ -299,45 +287,6 @@
 
 .catalog__product-internal-link:hover {
   opacity: 0.85;
-}
-
-.catalog__contact {
-  margin-top: var(--spacing-3xl);
-  padding: var(--spacing-xl);
-  background: var(--color-cream);
-  border-radius: var(--radius-md);
-  text-align: center;
-}
-
-.catalog__contact-title {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  margin-bottom: var(--spacing-md);
-}
-
-.catalog__contact-text {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
-}
-
-.catalog__contact-phone {
-  display: inline-block;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--color-primary);
-  text-decoration: none;
-  margin-bottom: var(--spacing-sm);
-}
-
-.catalog__contact-phone:hover {
-  opacity: 0.8;
-}
-
-.catalog__contact-hours {
-  font-size: 0.85rem;
-  color: var(--color-text-light);
 }
 
 @media (max-width: 768px) {

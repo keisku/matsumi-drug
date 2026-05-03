@@ -2,18 +2,6 @@
   padding-top: var(--header-height);
 }
 
-.about-page__hero {
-  background: var(--color-primary);
-  padding: var(--spacing-xl) 0;
-  text-align: center;
-}
-
-.about-page__title {
-  color: var(--color-white);
-  font-size: var(--font-size-h1);
-  margin: 0;
-}
-
 .about-page__content {
   background: var(--color-cream);
 }
@@ -30,7 +18,7 @@
 }
 
 .about-page__section-title {
-  font-size: var(--font-size-h2);
+  font-size: 1.5rem;
   color: var(--color-primary);
   margin-bottom: var(--spacing-lg);
   padding-bottom: var(--spacing-sm);
@@ -51,7 +39,7 @@
 .about-page__text {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-md);
 }
 
@@ -77,29 +65,6 @@
   max-width: 250px;
   height: auto;
   border-radius: var(--radius-md);
-}
-
-.about-page__staff {
-  text-align: center;
-}
-
-.about-page__staff-info {
-  padding: var(--spacing-lg);
-  background: var(--color-cream);
-  border-radius: var(--radius-md);
-}
-
-.about-page__staff-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-sm);
-}
-
-.about-page__staff-detail {
-  font-size: 0.875rem;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
 }
 
 @media (max-width: 768px) {

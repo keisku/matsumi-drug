@@ -1,29 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
-import { GOOGLE_FORM_URL, LINE_URL } from '../constants';
+import { LINE_URL } from '../constants';
+import { useNavScroll } from '../hooks/useNavScroll';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
-  const isHomePage = location.pathname === '/' || location.pathname === '';
+  const { isHomePage, scrollToSection, openContactForm } = useNavScroll();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleContactClick = () => {
-    window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
-  };
+  const closeMenu = () => setIsMenuOpen(false);
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    setIsMenuOpen(false);
+    closeMenu();
     if (isHomePage) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -31,33 +27,14 @@ export function Header() {
   };
 
   const handleSearchClick = () => {
-    setIsMenuOpen(false);
+    closeMenu();
     navigate('/catalog', { state: { focusSearch: true } });
   };
 
-  const scrollToSection = (sectionId: string) => {
-    setIsMenuOpen(false);
-    if (isHomePage) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate('/', { state: { scrollTo: sectionId } });
-    }
+  const handleSectionClick = (sectionId: string) => () => {
+    closeMenu();
+    scrollToSection(sectionId);
   };
-
-  useEffect(() => {
-    if (location.state && (location.state as { scrollTo?: string }).scrollTo) {
-      const sectionId = (location.state as { scrollTo: string }).scrollTo;
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
-  }, [location]);
 
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
@@ -70,27 +47,27 @@ export function Header() {
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
           <ul className="header__nav-list">
             <li>
-              <Link to="/about" className="header__nav-link" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/about" className="header__nav-link" onClick={closeMenu}>
                 まつみ薬局について
               </Link>
             </li>
             <li>
-              <button onClick={() => scrollToSection('step')} className="header__nav-link">
+              <button onClick={handleSectionClick('step')} className="header__nav-link">
                 ご相談の流れ
               </button>
             </li>
             <li>
-              <Link to="/catalog" className="header__nav-link" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/catalog" className="header__nav-link" onClick={closeMenu}>
                 取扱商品
               </Link>
             </li>
             <li>
-              <Link to="/blog" className="header__nav-link" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/blog" className="header__nav-link" onClick={closeMenu}>
                 ブログ
               </Link>
             </li>
             <li>
-              <button onClick={() => scrollToSection('access')} className="header__nav-link">
+              <button onClick={handleSectionClick('access')} className="header__nav-link">
                 アクセス
               </button>
             </li>
@@ -100,7 +77,7 @@ export function Header() {
               </button>
             </li>
             <li>
-              <button onClick={handleContactClick} className="header__nav-cta">
+              <button onClick={openContactForm} className="header__nav-cta">
                 お問い合わせ
               </button>
             </li>
@@ -138,7 +115,7 @@ export function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className="header__overlay" onClick={() => setIsMenuOpen(false)} />
+        <div className="header__overlay" onClick={closeMenu} />
       )}
     </header>
   );
