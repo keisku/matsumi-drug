@@ -1,5 +1,6 @@
 import './ConsultationStep.css';
-import { GOOGLE_FORM_URL, PHONE_NUMBER } from '../constants';
+import { PHONE_NUMBER } from '../constants';
+import { openContactForm } from '../utils/openContactForm';
 
 export function ConsultationStep() {
   const steps = [
@@ -40,10 +41,6 @@ export function ConsultationStep() {
       checkpoints: []
     }
   ];
-
-  const handleContactClick = () => {
-    window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
-  };
 
   return (
     <section className="step section" id="step">
@@ -108,7 +105,7 @@ export function ConsultationStep() {
         <div className="step__cta">
           <p className="step__cta-text">ご不明な点がございましたら、お気軽にお問い合わせください</p>
           <div className="step__cta-buttons">
-            <button onClick={handleContactClick} className="step__cta-button step__cta-button--primary">
+            <button onClick={openContactForm} className="step__cta-button step__cta-button--primary">
               お問い合わせ
             </button>
             <a href={`tel:${PHONE_NUMBER}`} className="step__cta-button step__cta-button--secondary">

@@ -19,3 +19,12 @@ pnpm build
 ```
 
 `dist/` に静的ファイルが生成されます。
+
+# lint
+
+```bash
+pnpm lint
+```
+
+型チェックには TypeScript 7、lint には Oxlint を使います。
+`.oxlintrc.json` で TypeScript、React Hooks、Fast Refresh のルールを設定しています。

@@ -1,7 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router';
 import './Footer.css';
 import { LINE_URL, PHONE_NUMBER } from '../constants';
 import { useNavScroll } from '../hooks/useNavScroll';
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
   const navigate = useNavigate();
@@ -60,7 +62,7 @@ export function Footer() {
 
         <div className="footer__bottom">
           <p className="footer__copyright">
-            © {new Date().getFullYear()} まつみ薬局. All rights reserved.
+            © {CURRENT_YEAR} まつみ薬局. All rights reserved.
           </p>
         </div>
       </div>

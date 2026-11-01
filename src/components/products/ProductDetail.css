@@ -1,26 +1,8 @@
+@import '../Breadcrumb.css';
+
 .product-page {
   padding-top: var(--header-height);
   min-height: 100vh;
-}
-
-.product-page__breadcrumb {
-  padding: var(--spacing-md) 0;
-  background: var(--color-white);
-  border-bottom: 1px solid #e8e8e8;
-  font-size: 0.85rem;
-  color: var(--color-text-light);
-}
-
-.product-page__breadcrumb a {
-  color: var(--color-primary);
-}
-
-.product-page__breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-.product-page__breadcrumb-separator {
-  margin: 0 var(--spacing-sm);
 }
 
 .product-detail {

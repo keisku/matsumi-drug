@@ -1,26 +1,8 @@
+@import '../Breadcrumb.css';
+
 .blog-article-page {
   padding-top: var(--header-height);
   min-height: 100vh;
-}
-
-.blog-article__breadcrumb {
-  padding: var(--spacing-md) 0;
-  background: var(--color-white);
-  border-bottom: 1px solid #e8e8e8;
-  font-size: 0.85rem;
-  color: var(--color-text-light);
-}
-
-.blog-article__breadcrumb a {
-  color: var(--color-primary);
-}
-
-.blog-article__breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-.blog-article__breadcrumb-separator {
-  margin: 0 var(--spacing-sm);
 }
 
 .blog-article {

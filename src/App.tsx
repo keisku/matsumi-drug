@@ -1,14 +1,20 @@
 import { useEffect, type ReactNode } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router';
 import { Header, Footer, Hero, About, Services, ConsultationStep, Access, Catalog, AboutPage } from './components';
 import { KyushinKannouganki, YakukenBiorinck, YakukenBiorinckBCEx } from './components/products';
 import { BlogList, BlogArticle } from './components/blog';
 
-function ScrollToTop() {
+function NavigationScroll() {
   const location = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [location.key]);
+    const target = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (!target) return;
+    const id = window.setTimeout(() => {
+      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    return () => window.clearTimeout(id);
+  }, [location]);
   return null;
 }
 
@@ -27,7 +33,7 @@ const home = page(
 function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <ScrollToTop />
+      <NavigationScroll />
       <Header />
       <Routes>
         <Route path="/" element={home} />

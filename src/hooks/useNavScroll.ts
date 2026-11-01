@@ -1,20 +1,10 @@
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { GOOGLE_FORM_URL } from '../constants';
+import { useLocation, useNavigate } from 'react-router';
+import { openContactForm } from '../utils/openContactForm';
 
 export function useNavScroll() {
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/' || location.pathname === '';
-
-  useEffect(() => {
-    const target = (location.state as { scrollTo?: string } | null)?.scrollTo;
-    if (!target) return;
-    const id = window.setTimeout(() => {
-      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-    return () => window.clearTimeout(id);
-  }, [location]);
 
   const scrollToSection = (sectionId: string) => {
     if (isHomePage) {
@@ -22,10 +12,6 @@ export function useNavScroll() {
     } else {
       navigate('/', { state: { scrollTo: sectionId } });
     }
-  };
-
-  const openContactForm = () => {
-    window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
   };
 
   return { isHomePage, scrollToSection, openContactForm };

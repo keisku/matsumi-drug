@@ -1,4 +1,5 @@
 import { ProductDetailLayout } from './ProductDetailLayout';
+import { CaptionedImage } from './CaptionedImage';
 
 const BASE_PATH = `${import.meta.env.BASE_URL}images/blog/yakuken-biolink/`;
 
@@ -25,15 +26,6 @@ const IMAGES = {
   cellWallThick: `${BASE_PATH}48267-e1586868071960.jpg`,
   manualBack: `${BASE_PATH}482651-278x300.jpg`,
 };
-
-function CaptionedImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
-  return (
-    <div className="blog-standard__image-wrapper">
-      <img src={src} alt={alt} className="blog-standard__image" loading="lazy" />
-      {caption && <p className="blog-standard__caption">{caption}</p>}
-    </div>
-  );
-}
 
 export function YakukenBiorinck() {
   return (

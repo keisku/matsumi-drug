@@ -1,5 +1,5 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { createElement } from 'react';
+import { useParams, Link, Navigate } from 'react-router';
+import { createElement, type ReactNode } from 'react';
 import { getArticleBySlug } from './articles';
 import type { BlogSection, StandardBlogSection } from './articles';
 import './BlogArticle.css';
@@ -45,6 +45,27 @@ function StandardSectionContent({ section }: { section: StandardBlogSection }) {
   }
 }
 
+function SectionItem({ label, item, children }: {
+  label: string;
+  item: BlogSection['medicine'] | BlogSection['food'] | BlogSection['acupoint'];
+  children?: ReactNode;
+}) {
+  return (
+    <div className="blog-section__item">
+      <h4 className="blog-section__item-label">{label}</h4>
+      <div className="blog-section__item-header">
+        <span className="blog-section__item-name">
+          {item.name}
+          {'reading' in item && <span className="blog-section__item-reading">（{item.reading}）</span>}
+        </span>
+      </div>
+      {item.image && <img src={item.image} alt={item.name} className="blog-section__item-image" loading="lazy" />}
+      <p className="blog-section__item-description">{item.description}</p>
+      {children}
+    </div>
+  );
+}
+
 function SectionContent({ section }: { section: BlogSection }) {
   return (
     <div className="blog-section">
@@ -65,72 +86,27 @@ function SectionContent({ section }: { section: BlogSection }) {
       <p className="blog-section__intro">{section.intro}</p>
 
       <div className="blog-section__content">
-        <div className="blog-section__item">
-          <h4 className="blog-section__item-label">生薬</h4>
-          <div className="blog-section__item-header">
-            <span className="blog-section__item-name">
-              {section.medicine.name}
-              <span className="blog-section__item-reading">（{section.medicine.reading}）</span>
-            </span>
-          </div>
-          {section.medicine.image && (
-            <img
-              src={section.medicine.image}
-              alt={section.medicine.name}
-              className="blog-section__item-image"
-              loading="lazy"
-            />
-          )}
-          <p className="blog-section__item-description">{section.medicine.description}</p>
+        <SectionItem label="生薬" item={section.medicine}>
           <div className="blog-section__item-meta">
             <p><strong>味：</strong>{section.medicine.taste}</p>
             <p><strong>性質：</strong>{section.medicine.nature}</p>
           </div>
-        </div>
+        </SectionItem>
 
-        <div className="blog-section__item">
-          <h4 className="blog-section__item-label">食材</h4>
-          <div className="blog-section__item-header">
-            <span className="blog-section__item-name">{section.food.name}</span>
-          </div>
-          {section.food.image && (
-            <img
-              src={section.food.image}
-              alt={section.food.name}
-              className="blog-section__item-image"
-              loading="lazy"
-            />
-          )}
-          <p className="blog-section__item-description">{section.food.description}</p>
+        <SectionItem label="食材" item={section.food}>
           {(section.food.taste || section.food.nature) && (
             <div className="blog-section__item-meta">
               {section.food.taste && <p><strong>味：</strong>{section.food.taste}</p>}
               {section.food.nature && <p><strong>性質：</strong>{section.food.nature}</p>}
             </div>
           )}
-        </div>
+        </SectionItem>
 
-        <div className="blog-section__item">
-          <h4 className="blog-section__item-label">ツボ</h4>
-          <div className="blog-section__item-header">
-            <span className="blog-section__item-name">
-              {section.acupoint.name}
-              <span className="blog-section__item-reading">（{section.acupoint.reading}）</span>
-            </span>
-          </div>
-          {section.acupoint.image && (
-            <img
-              src={section.acupoint.image}
-              alt={section.acupoint.name}
-              className="blog-section__item-image"
-              loading="lazy"
-            />
-          )}
-          <p className="blog-section__item-description">{section.acupoint.description}</p>
+        <SectionItem label="ツボ" item={section.acupoint}>
           <p className="blog-section__item-location">
             <strong>探し方：</strong>{section.acupoint.location}
           </p>
-        </div>
+        </SectionItem>
       </div>
     </div>
   );

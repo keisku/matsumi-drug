@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router';
 import './Header.css';
 import { LINE_URL } from '../constants';
 import { useNavScroll } from '../hooks/useNavScroll';

@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 import './Catalog.css';
-import { GOOGLE_FORM_URL } from '../constants';
+import { openContactForm } from '../utils/openContactForm';
 
 interface Product {
   id: string;
@@ -190,10 +190,6 @@ export function Catalog() {
   const blurTimeoutRef = useRef<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleContactClick = () => {
-    window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
-  };
-
   const handleFocus = () => {
     if (blurTimeoutRef.current !== null) {
       window.clearTimeout(blurTimeoutRef.current);
@@ -320,7 +316,7 @@ export function Catalog() {
             )}
           </div>
 
-          <button onClick={handleContactClick} className="catalog__contact-mobile">
+          <button onClick={openContactForm} className="catalog__contact-mobile">
             お問い合わせ
           </button>
 
@@ -388,7 +384,7 @@ export function Catalog() {
                 </div>
               </div>
               {category.id === 'chlorella' && (
-                <button onClick={handleContactClick} className="catalog__contact-mobile catalog__contact-mobile--inline">
+                <button onClick={openContactForm} className="catalog__contact-mobile catalog__contact-mobile--inline">
                   お問い合わせ
                 </button>
               )}
